@@ -3,9 +3,15 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+let mongoose = require('mongoose');
+
 
 var indexRouter = require('./routes/index');
 var articlesRouter = require('./routes/articles');
+
+mongoose.connect('mongodb://localhost/blog', {useNewUrlParser : true, useUnifiedTopology : true}, (err) => {
+  console.log(err ? err : "Connected true");
+})
 
 var app = express();
 
