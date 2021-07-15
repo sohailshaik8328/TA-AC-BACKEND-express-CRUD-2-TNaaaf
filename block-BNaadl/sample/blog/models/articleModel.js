@@ -9,6 +9,6 @@ let articleSchema = new Schema({
     likes : {type : Number}
 }, {timestamps : true})
 
-let article = mongoose.Model("Article", articleSchema);
+let article = mongoose.model("Article", articleSchema);
 
 module.exports = article;
