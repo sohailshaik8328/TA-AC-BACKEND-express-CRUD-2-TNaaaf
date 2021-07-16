@@ -1,5 +1,6 @@
 var express = require('express');
 let Article = require('../models/articleModel');
+let Comments = require('../models/comments-model');
 var router = express.Router();
 
 /* GET users listing. */
