@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header_section">
+        <div class="container">
+            <div class="header flex">
+                <a href="/">
+                    <h1 class="logo">BOOK-STORE</h1>
+                </a>
+                <a href="/books">
+                    <button class="btn">Back</button>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <div class="container">
+                <div class="list_books_section">
+                    <h2 class="list_books">Showing Book</h2>
+
+                    <section class="book_section flex wrap">
+                        <div class="">
+                            <a href="#">
+                                <img class="cover_img cover_img_single" src="<%= book.coverImage  %> " alt="">
+                            </a>
+                            <a href="#">
+                                <h3 class="title">
+                                    <%=` Title : ${book.title} `%>
+                                </h3>
+                            </a>
+                            <p class="summary">
+                                <%= book.summary %>
+                            </p>
+                            <p class="pages">
+                                <%= ` Pages : ${book.pages}` %>
+                            </p>
+                            <p class="publication">
+                                <%= ` Published : ${book.publication}` %>
+                            </p>
+
+                            <a href="/books/<%= book.id  %>/edit ">
+                                <button class="btn edit_btn">Edit</button>
+                            </a>
+
+
+                            <a href="/books/<%= book.id  %>/delete ">
+                                <button class="btn delete_btn">Delete</button>
+                            </a>
+
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
