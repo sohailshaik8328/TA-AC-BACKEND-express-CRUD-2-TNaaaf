@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header_section">
+        <div class="container">
+            <div class="header flex">
+                <a href="/">
+                    <h1 class="logo">BOOK-STORE</h1>
+                </a>
+                <a href="/author/new">
+                    <button class="btn">Add Book</button>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+<section>
+    <div class="container">
+        <div class="category_section">
+            <h3>Search by Category</h3>
+            <a href="/categories/technology">
+                <button class="btn tech_btn">Technology</button>
+            </a>
+            <a href="/categories/fiction">
+                <button class="btn fic_btn">Fiction</button>
+            </a>
+            <a href="/categories/adventure">
+                <button class="btn adv_btn">Adventure</button>
+            </a>
+            <a href="/categories/motivation">
+                <button class="btn mot_btn">Motivation</button>
+            </a>
+        </div>
+    </div>
+</section>
+
+        <section>
+            <div class="container">
+                <div class="list_books_section">
+                    <h2 class="list_books">List of Books</h2>
+
+                    <section class="book_section flex wrap">
+                        <% books.forEach(book=> { %>
+                            <div class="book">
+                                <a href="/books/<%= book.id  %> ">
+                                    <img class="cover_img" src="<%= book.coverImage  %> " alt="">
+                                </a>
+                                <a href="#">
+                                    <h3 class="title">
+                                        <%=` Title : ${book.title} `%>
+                                    </h3>
+                                </a>
+
+
+                            </div>
+                            <% }) %>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
