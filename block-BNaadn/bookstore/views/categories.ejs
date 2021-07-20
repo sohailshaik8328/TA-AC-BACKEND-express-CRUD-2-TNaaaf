@@ -26,14 +26,20 @@
         </div>
     </header>
 
-    <main>
-        <section>
-            <div class="container">
-                <div class="list_books_section">
-                    <h2 class="list_books">Showing Book</h2>
 
-                    <section class="book_section flex wrap">
-                        <div class="">
+    <section>
+        <div class="container">
+            <div class="list_books_section">
+                <h2 class="list_books">Showing Books</h2>
+
+
+                <section class="book_section flex wrap">
+                    <% book.forEach(book=> { %>
+                        <!-- <h3>
+                            <%= `Category : ${book.category}` %>
+                        </h3> -->
+
+                        <div class="single_book">
                             <a href="#">
                                 <img class="cover_img cover_img_single" src="<%= book.coverImage  %> " alt="">
                             </a>
@@ -42,7 +48,7 @@
                                     <%= book.category %>
                                 </button>
                             </a>
-                                <a href="#">
+                            <a href="#">
                                 <h3 class="title">
                                     <%=` Title : ${book.title} `%>
                                 </h3>
@@ -66,14 +72,14 @@
                                 <button class="btn delete_btn">Delete</button>
                             </a>
 
-                            
+
                         </div>
 
-                    </section>
-                </div>
+                </section>
+                <% }) %>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 </body>
 
 </html>

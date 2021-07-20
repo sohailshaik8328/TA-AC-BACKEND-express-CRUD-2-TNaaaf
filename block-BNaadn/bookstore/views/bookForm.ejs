@@ -36,6 +36,14 @@
                         <textarea name="summary" id="" placeholder="Enter summary" cols="30" rows="10"></textarea>
                         <input type="text" name="pages" placeholder="Enter your pages" id="">
                         <input type="text" name="coverImage" placeholder="Enter image url" id="">
+                        <input type="text" name="category" placeholder="Enter Category" id="">
+                        <select name="authorId" id="">
+                            <% authors.forEach(author=> { %>
+                                <option value="<%= author.id %>">
+                                    <%= author.name %>
+                                </option>
+                                <% }) %>
+                        </select>
                         <div class="">
                             <button class="btn form_btn" type="submit">Add Book</button>
                         </div>
