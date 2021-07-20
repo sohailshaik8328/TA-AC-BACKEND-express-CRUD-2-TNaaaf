@@ -1,23 +1,29 @@
 var express = require('express');
 var router = express.Router();
 var Book = require('../models/bookModel');
+var Author = require('../models/authorModel');
 
 /* GET users listing. */
 router.get('/', (req, res, next) => {
-  Book.find({}, (err, books) => {
+  Book.find({}).populate('authorId').exec((err, books) => {
     if(err) return next(err);
     res.render('books', {books});
   })
 });
 
 router.get('/new', (req, res, next) => {
-  res.render('bookForm');
+  Author.find({}, (err, authors) => {
+    res.render('bookForm', {authors});
+  })
 })
 
 router.post('/', (req, res, next) => {
-  Book.create(req.body, (err, books) => {
+  Book.create(req.body, (err, book) => {
     if(err) return next(err);
-    res.redirect('books');
+    Author.findByIdAndUpdate(req.body.authorId, {$push : {bookId : book.id}}, (err, author) => {
+      if(err) return next(err);
+      res.redirect('books');
+    })
   })
 })
 
@@ -27,6 +33,10 @@ router.get('/:id', (req, res, next) => {
     if(err) return next(err);
     res.render('singleBook', {book});
   })
+//   Book.findById(id).populate('Author').exec((err, book) => {
+//     if(err) return next(err);
+//     res.render('singleBook', {book});
+//   })
 })
 
 router.get('/:id/edit', (req, res, next) => {
