@@ -19,6 +19,7 @@ router.get('/new', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
   Book.create(req.body, (err, book) => {
+    req.body.category = req.body.category.trim().toLowerCase();
     if(err) return next(err);
     Author.findByIdAndUpdate(req.body.authorId, {$push : {bookId : book.id}}, (err, author) => {
       if(err) return next(err);
