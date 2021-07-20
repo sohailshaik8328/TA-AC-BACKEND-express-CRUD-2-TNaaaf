@@ -4,8 +4,9 @@ let Author = require('../models/authorModel');
 let Book = require('../models/bookModel');
 
 router.get('/fiction', (req, res, next) => {
+    // console.log(req.body)
         Book.find({category : "fiction"}).exec((err, book) => {
-            console.log(`this is book ${book}`);
+            // console.log(`this is book ${book}`);
             if(err) return next(err);
             res.render('categories', {book});
         })
